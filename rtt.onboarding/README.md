@@ -11,7 +11,8 @@ Ubuntu 16.04
 Role Variables
 --------------
 
-- None
+- ansible_password
+    Hashed password, currently set to "RTT@Ansible", use mkpasswd --method=SHA-512 to generate new password hash
 
 Dependencies
 ------------
@@ -20,12 +21,9 @@ Dependencies
 
 Example Playbook
 ----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
+    - hosts: linux
       roles:
-         - { role: username.rolename, x: 42 }
+        - {role: rtt.onboarding, ansible_password: <passwordHash>}
 
 License
 -------

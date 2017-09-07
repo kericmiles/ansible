@@ -1,4 +1,4 @@
 ---
 - hosts: linux
   roles:
-    - role: rtt.onboarding
+    - {role: rtt.onboarding, ansible_password: $6$Wtgoang5k$oXuFqgDPeFQHY4VogzT55nFdBzdmQQxc5Mex6popiHur.JwTK42qqJnJwaL9g3Dtj.cDqcHnxadBz3l.axcs/1}
