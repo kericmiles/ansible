@@ -1,0 +1,34 @@
+---
+- name: Add ansible user if not present
+  user:
+    name: ansible
+    password: "{{ ansible_password }}"
+    comment: "Ansible automation user"
+    shell: /bin/bash
+    uid: 1099
+    group: sudo
+
+- name: Create .ssh directory
+  file: 
+    path: /home/ansible/.ssh
+    state: directory
+    owner: ansible
+    group: sudo
+
+- name: Add key to authorized_keys
+  copy:
+    src: id_rsa.pub
+    dest: /home/ansible/.ssh/authorized_keys
+    owner: ansible
+    group: sudo
+    mode: 0644
+
+- name: Add sudoers extension for ansible
+  lineinfile: 
+    path: /etc/sudoers.d/ansible
+    regexp: 'ansible    ALL'
+    line: 'ansible    ALL= NOPASSWD: ALL'
+    create: yes
+    state: present
+    mode: 0440
+
