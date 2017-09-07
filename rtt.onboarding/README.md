@@ -12,7 +12,7 @@ Role Variables
 --------------
 
 - ansible_password
-    Hashed password, currently set to "RTT@Ansible", use mkpasswd --method=SHA-512 to generate new password hash
+  <br>Hashed password, currently set to "RTT@Ansible", use mkpasswd --method=SHA-512 to generate new password hash
 
 Dependencies
 ------------
