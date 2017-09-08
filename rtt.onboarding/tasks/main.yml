@@ -6,21 +6,21 @@
     comment: "Ansible automation user"
     shell: /bin/bash
     uid: 1099
-    group: sudo
+    group: "{{sudo_group}}"
 
 - name: Create .ssh directory
   file: 
     path: /home/ansible/.ssh
     state: directory
     owner: ansible
-    group: sudo
+    group: "{{sudo_group}}"
 
 - name: Add key to authorized_keys
   copy:
     src: id_rsa.pub
     dest: /home/ansible/.ssh/authorized_keys
     owner: ansible
-    group: sudo
+    group: "{{sudo_group}}"
     mode: 0644
 
 - name: Add sudoers extension for ansible

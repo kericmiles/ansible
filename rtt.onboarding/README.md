@@ -6,7 +6,7 @@ Sets up automation account and preps machine for Ansible automation
 Requirements
 ------------
 
-Ubuntu 16.04
+Tested on Ubuntu 16.04 and Centos 7
 
 Role Variables
 --------------
@@ -32,5 +32,5 @@ BSD
 
 Author Information
 ------------------
-
-Author: Keric Miles
+Keric Miles
+https://github.com/kericmiles/ansible

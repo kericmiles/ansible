@@ -1,2 +1,3 @@
 ---
 ansible_password: $6$00ylq41Lt$v5pJfxeSbKhvA.aKZphMuYS.IMbVsTVsiqtJ7bHn7bKk.Fe/vL8gKWmSYH8zQQqPB2UdvreivrR9Gaej63RqM.
+sudo_group: "{{ 'sudo' if ansible_distribution == 'Ubuntu' else 'wheel' }}"
