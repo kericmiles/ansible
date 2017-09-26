@@ -1,7 +1,7 @@
 rtt.onboarding
 =========
 
-Sets up automation account and preps machine for Ansible automation
+Sets up automation account and preps machine for Ansible automation. The key can be replaced under files/id_rsa.pub.
 
 Requirements
 ------------
