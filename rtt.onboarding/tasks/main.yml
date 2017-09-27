@@ -31,4 +31,3 @@
     create: yes
     state: present
     mode: 0440
-

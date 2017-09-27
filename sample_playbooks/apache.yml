@@ -1,0 +1,41 @@
+---
+- hosts: webservers
+  become: yes
+  tasks:
+    - name: install apache
+      apt:
+        name: apache2
+        state: latest
+      notify: restart apache
+
+    - name: create empty index if it doesn't exist
+      file:
+        state: touch
+        path: /var/www/html/index.html
+
+    - name: add line to index if not present
+      lineinfile:
+        state: present
+        path: /var/www/html/index.html
+        line: '<html>The machine hostname is {{ansible_hostname}}</html>'
+
+  handlers:
+  - name: restart apache
+    service:
+      name: apache2
+      state: restarted
+  
+- hosts: webservers_alt
+  become: yes
+  tasks:
+    - name: Install apache
+      apt:
+        name: apache2
+        state: latest
+      notify: restart apache
+      
+  handlers:
+  - name: restart apache
+    service:
+      name: apache2
+      state: restarted
